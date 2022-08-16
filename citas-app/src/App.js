@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import ComponenteCrearCitas from "./ComponenteCrearCitas";
+import ComponentePacientes from "./ComponentePacientes";
 
 function App() {
   return (
     <div className="App">
-        <h1 className={'text-2xl text-violet-900 font-medium'}>Mi Clinica React</h1>
+        <h1 className={'text-5xl m-2'}>Mi Clinica React</h1>
         <ComponenteCrearCitas/>
+        <ComponentePacientes/>
     </div>
   );
 }
