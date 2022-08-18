@@ -1,102 +1,89 @@
 import React, {useState} from "react";
 
-export default function ComponenteCrearCitas(){
+export default function ComponenteCrearCitas({mascotas, setMascotas}){
 
-    const [datos, setDatos] = useState({
-        nombre: '',
-        id: '',
+    const [nombre, setNombre] = useState('')
+    const [fecha, setFecha] = useState('')
+    const [sintomas, setSintomas] = useState('')
+    const [hora, setHora] = useState('')
 
+    function agregarMascota(e){
+        e.preventDefault()
+        const mascota = {
+            nombre,
+            fecha,
+            hora,
+            sintomas,
         }
-    )
 
-    const handleInputChange = (event) => {
-        //console.log(event.target.value)
-        setDatos({
-            ...datos,
-            [event.target.name] : event.target.value
-        })
-    }
+        //con esto agregamos la mascota al array del app.js
+        setMascotas([...mascotas, mascota])
+        console.log('ya se ejecuto')
 
-    const enviarDatos = (event) => {
-        event.preventDefault();
-        console.log(datos.nombre + " " + datos.id)
+        //aqui se limpian los inputs
+        setNombre('')
+        setFecha('')
+        setHora('')
+        setSintomas('')
     }
 
     return(
-        <div>
+        <div className={'m-3 w-1/2 py-8 h-auto bg-lime-50 rounded-lg shadow-2xl'}>
             <div>
-                <h1>Crear Cita</h1>
+                <h1 className={'text-2xl'}>Crear Cita</h1>
             </div>
-            <div className={'grid grid-cols-2 auto-cols-min border-solid border-2 border-black p-4'}>
+            <div >
 
-                <form onSubmit={enviarDatos}>
+                <form onSubmit={agregarMascota}>
 
-                    <div className={'border-solid border-2'}>
+                    <div>
                         <h2>Nombre</h2>
-                        <input type="text"
-                               name={'nombre'}
-                               placeholder={'Ingrese su nombre y apellidos...'}
-                               onChange={handleInputChange}
+                        <input
+                            className={'h-9 p-2 shadow-inner rounded-md'}
+                            type="text"
+                            value={nombre}
+                            onChange={(e)=>{setNombre(e.target.value)}}
+                            placeholder={'Ingrese su nombre y apellidos...'}
                         />
                     </div>
 
-                    <div className={'border-solid border-2'}>
-                        <h2>Id</h2>
-                        <input type="number"
-                               name={'id'}
-                               placeholder={'Ingrese su id...'}
-                               onChange={handleInputChange}
-                        />
-                    </div>
 
-                    <div className={'border-solid border-2'}>
-                        <h2>Telefono</h2>
-                        <input type="tel"
-                               name={'telefono'}
-                               placeholder={'Ingrese su telefono'}
-                               onChange={handleInputChange}
-                        />
-                    </div>
-
-                    <div className={'border-solid border-2'}>
-                        <h2>E-mail</h2>
-                        <input type="email"
-                               name={'correo'}
-                               placeholder={'email'}
-                               onChange={handleInputChange}
-                        />
-                    </div>
-
-                    <div className={'border-solid border-2'}>
+                    <div >
                         <h2>Fecha</h2>
-                        <input type="date"
-                               name={'fecha'}
-                               placeholder={'Fecha de la cita'}
-                               onChange={handleInputChange}
+                        <input
+                            className={'h-9 p-2 shadow-inner rounded-md'}
+                            type="date"
+                            name={fecha}
+                            onChange={(e)=>{setFecha(e.target.value)}}
                         />
                     </div>
 
-                    <div className={'border-solid border-2'}>
-                        <h2>Hora</h2>
-                        <input type="time"
-                               name={'hora'}
-                               placeholder={'Ingrese la hora'}
-                               onChange={handleInputChange}
+                    <div>
+                        <h2>Hora de la cita</h2>
+                        <input
+                            className={'h-9 p-2 shadow-inner rounded-md'}
+                            type="time"
+                            name={hora}
+                            onChange={(e)=>{setHora(e.target.value)}}
+
                         />
                     </div>
 
-                    <div className={'border-solid border-2'}>
+
+                    <div>
                         <h2>Sintomas</h2>
-                        <input type="text"
-                               name={'sintomas'}
-                               placeholder={'Cuales son sus sintomas?'}
-                               onChange={handleInputChange}
+                        <input
+                            className={'h-20 p-2 shadow-inner rounded-md'}
+                            type="text"
+                            name={'sintomas'}
+                            onChange={(e)=>{setSintomas(e.target.value)}}
+                            placeholder={'Cuales son sus sintomas?'}
                         />
                     </div>
 
-                    <button type={"submit"}>Crear Cita</button>
+                    <button className={'w-1/3 h-10 shadow-xl bg-teal-600 text-white rounded-md mt-8'} type={"submit"}>Crear Cita</button>
                 </form>
-                
+
 
             </div>
         </div>
