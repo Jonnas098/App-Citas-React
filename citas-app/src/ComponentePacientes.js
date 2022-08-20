@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import PacienteTarjeta from "./PacienteTarjeta";
 
-export default function ComponentePacientes({mascotas}) {
+export default function ComponentePacientes({ mascotas, setMascotas }) {
+
+    const handleDelete = mascotas => {
+        if (window.confirm('Desea elimiar este paciente?')) {
+            alert('Paciente eliminado')
+
+        }
+        setMascotas(mascotas.filter((mascotas) => !mascotas == mascotas));
+    }
 
 
     return (
@@ -9,10 +17,10 @@ export default function ComponentePacientes({mascotas}) {
             <h2 className={'text-2xl'}>Lista de <span className={'text-sky-400'}>Mascotas</span> </h2>
             {
                 mascotas.map((mascotas) => {
-                    return <PacienteTarjeta
-                    
+                    return <PacienteTarjeta handleDelete={handleDelete}
+
                         key={mascotas.nombre}
-                    
+
                         //esto son los props que iran en el componente paciente 
                         nombre={mascotas.nombre}
                         fecha={mascotas.fecha}

@@ -1,7 +1,7 @@
 import './App.css';
 import ComponenteCrearCitas from "./ComponenteCrearCitas";
 import ComponentePacientes from "./ComponentePacientes";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 
 function App() {
 
@@ -25,8 +25,8 @@ function App() {
                 />
             </div>
 
-            <div className='h-20 min-w-full flex justify-center place-items-center'>
-                Creado por John Navarro R | <span className='text-blue-300'> UCreativa </span> | 2022
+            <div className='h-20 min-w-full flex flex-wrap justify-center place-items-center'>
+                <a href='https://github.com/Jonnas098'>Creado por John Navarro R </a> | <a href='https://www.ucreativa.com/' className='text-blue-300'>UCreativa</a> | 2022
             </div>
 
         </div>

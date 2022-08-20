@@ -1,14 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function PacienteTarjeta({ nombre, fecha, hora, sintomas }) {
-
-    const handleDelete = () => {
-        if (window.confirm('Desea elimiar este paciente?')) {
-            alert('Paciente eliminado')
-        
-        }
-        
-    }
+export default function PacienteTarjeta({ nombre, fecha, hora, sintomas, handleDelete }) {
 
 
     return (
