@@ -1,26 +1,41 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-export default function PacienteTarjeta({nombre, fecha, hora, sintomas}){
+export default function PacienteTarjeta({ nombre, fecha, hora, sintomas }) {
+
+    const handleDelete = () => {
+        if (window.confirm('Desea elimiar este paciente?')) {
+            alert('Paciente eliminado')
+        
+        }
+        
+    }
 
 
-    return(
-        <div className={'bg-white w-4/5 m-2 p-2 shadow-md rounded-lg text-left'}>
-            <p className={'mb-2'}>
-                Nombre: {nombre}
-            </p>
-            <p className={'mb-2'}>
-                Fecha: {fecha}
-            </p>
-            <p className={'mb-2'}>
-                Hora: {hora}
-            </p>
-            <p>
-                Sintomas: {sintomas}
-            </p>
+    return (
+        <div className={'bg-white w-4/5 my-4 p-2 shadow-md rounded-lg '}>
+            <div className={'text-left'}>
+                <p className={'mb-2'}>
+                    <span className='text-xl font-light'>Nombre:</span> {nombre}
+                </p>
+                <p className={'mb-2'}>
+                    <span className='text-xl font-light'>Fecha:</span> {fecha}
+                </p>
+                <p className={'mb-2'}>
+                    <span className='text-xl font-light'>Hora:</span> {hora}
+                </p>
+                <p>
+                    <span className='text-xl font-light'>Sintomas:</span> {sintomas}
+                </p>
 
-            <button
-                className={'w-1/3 h-10 shadow-xl bg-blue-300 text-white rounded-2xl my-2'}>Borrar</button>
+            </div>
 
+            <div className={'flex justify-end '}>
+                <button
+                    onClick={handleDelete}
+                    className={'w-1/2 sm:w-1/4 h-10 shadow-xl bg-blue-300 hover:bg-blue-500 text-white rounded-2xl mt-8'}>Borrar</button>
+
+            </div>
         </div>
+
     )
 }
