@@ -8,12 +8,12 @@ export default function ComponentePacientes({ mascotas, setMascotas }) {
             alert('Paciente eliminado')
 
         }
-        setMascotas(mascotas.filter((mascotas) => !mascotas == mascotas));
+        setMascotas(setMascotas.filter((mascotas) => !mascotas == mascotas.id));
     }
 
 
     return (
-        <div className={'m-3 w-auto flex flex-col items-center py-8 h-auto bg-white rounded-lg shadow-xl'}>
+        <div className={'m-3 w-auto flex flex-col items-center py-8 h-96 bg-white rounded-lg shadow-xl overflow-auto'}>
             <h2 className={'text-2xl'}>Lista de <span className={'text-sky-400'}>Mascotas</span> </h2>
             {
                 mascotas.map((mascotas) => {
