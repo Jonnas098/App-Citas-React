@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PacienteTarjeta({ nombre, fecha, hora, sintomas, handleDelete }) {
+export default function PacienteTarjeta({ nombre, fecha, hora, sintomas, borrarMascota}) {
 
 
     return (
@@ -23,7 +23,7 @@ export default function PacienteTarjeta({ nombre, fecha, hora, sintomas, handleD
 
             <div className={'flex justify-end '}>
                 <button
-                    onClick={handleDelete}
+                    onClick={borrarMascota}
                     className={'w-1/2 sm:w-1/4 h-10 shadow-xl bg-blue-300 hover:bg-blue-500 text-white rounded-2xl mt-8'}>Borrar</button>
 
             </div>

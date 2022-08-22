@@ -7,10 +7,7 @@ export default function ComponenteCrearCitas({ mascotas, setMascotas}) {
     const [sintomas, setSintomas] = useState('')
     const [hora, setHora] = useState('')
 
-    useEffect(()=>{
-        console.log('cambio')
-        localStorage.setItem('mascotas', JSON.stringify(mascotas))
-    }, [mascotas])
+
 
 
     const handleSubmit = (e) => {
@@ -44,7 +41,7 @@ export default function ComponenteCrearCitas({ mascotas, setMascotas}) {
 
                     <div>
 
-                        <h2>Nombre</h2>
+                        <h2 className={'my-2'}>Nombre</h2>
                         <input
                             className={'h-10 w-1/2 p-2 shadow-inner rounded-md'}
                             type="text"
@@ -56,7 +53,7 @@ export default function ComponenteCrearCitas({ mascotas, setMascotas}) {
 
 
                     <div >
-                        <h2>Fecha</h2>
+                        <h2 className={'my-2'}>Fecha</h2>
                         <input
                             className={'h-10 w-1/2 p-2 shadow-inner rounded-md'}
                             type="date"
@@ -67,7 +64,7 @@ export default function ComponenteCrearCitas({ mascotas, setMascotas}) {
                     </div>
 
                     <div>
-                        <h2>Hora de la cita</h2>
+                        <h2 className={'my-2'}>Hora de la cita</h2>
                         <input
                             className={'h-10 w-1/2 p-2 shadow-inner rounded-md'}
                             type="time"
@@ -80,7 +77,7 @@ export default function ComponenteCrearCitas({ mascotas, setMascotas}) {
 
 
                     <div>
-                        <h2>Sintomas</h2>
+                        <h2 className={'my-2'}>Sintomas</h2>
                         <input
                             className={'h-20 w-1/2 p-2 shadow-inner rounded-md'}
                             type="text"

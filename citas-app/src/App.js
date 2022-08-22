@@ -1,20 +1,39 @@
 import './App.css';
 import ComponenteCrearCitas from "./ComponenteCrearCitas";
 import ComponentePacientes from "./ComponentePacientes";
-import {useState } from "react";
+import {useEffect, useState} from "react";
 
 function App() {
 
     const [mascotas, setMascotas] = useState([])
 
+    //Esta seccion del codigo me guarda en el local storage las citas creadas
+
+    useEffect(()=>{
+        let data = localStorage.getItem('mascotas');
+        if (data){
+            setMascotas(JSON.parse(data));
+        }
+    }, []);
+
+    useEffect(()=>{
+        localStorage.setItem('mascotas', JSON.stringify(mascotas))
+    }, [mascotas])
+
+    //Funcion para eliminar la mascota
+
+    const deleteMascota = () => {
+        setMascotas(mascotas.filter(mascotas => mascotas.id))
+    }
+
     return (
         <div className="App flex flex-col items-center">
 
-            <div className={'bg-blue-400 w-4/5 lg:w-1/2 h-16 rounded-lg mt-2 shadow-md'}>
+            <div className={'bg-blue-400 w-4/5 lg:w-1/2 lg:w-3/4 h-16 rounded-lg mt-2 shadow-md'}>
                 <h1 className={'text-3xl m-2 text-white tracking-wide text-center'}>AmiPets</h1>
             </div>
 
-            <div className={'grid grid-cols-1 gap-4 w-4/5 lg:w-1/2'}>
+            <div className={'grid grid-cols-1 gap-4 w-4/5 lg:grid-cols-2 lg:gap-0 lg:w-3/4 lg:w-1/2'}>
                 <ComponenteCrearCitas
                     mascotas={mascotas}
                     setMascotas={setMascotas}
@@ -22,6 +41,7 @@ function App() {
                 <ComponentePacientes
                     mascotas={mascotas}
                     setMascotas={setMascotas}
+                    deleteMascota={deleteMascota}
                 />
             </div>
 
